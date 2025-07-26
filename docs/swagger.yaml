@@ -1,0 +1,524 @@
+basePath: /v1
+definitions:
+  Exchange_internal_model.ErrorResponseStruct:
+    properties:
+      code:
+        type: integer
+      error:
+        description: پیام فنی (developer-friendly)
+        type: string
+      error_code:
+        description: کد خطای اختصاصی (مثلاً validation_error)
+        type: string
+      message:
+        description: پیام کاربر (user-friendly)
+        type: string
+      success:
+        type: boolean
+    type: object
+  Exchange_internal_model.LoginRequest:
+    properties:
+      captcha_ans:
+        example: aBc123
+        type: string
+      captcha_id:
+        example: 9f1b77d3-cb13-4a72-8a64-28de5f82a5c2
+        type: string
+      email:
+        example: user@example.com
+        type: string
+      password:
+        example: P@ssw0rd123
+        type: string
+    required:
+    - captcha_ans
+    - captcha_id
+    - email
+    - password
+    type: object
+  Exchange_internal_model.RefreshTokenRequest:
+    properties:
+      refresh_token:
+        example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        type: string
+    required:
+    - refresh_token
+    type: object
+  Exchange_internal_model.RegisterRequest:
+    properties:
+      captcha_ans:
+        example: aBc123
+        type: string
+      captcha_id:
+        example: 9f1b77d3-cb13-4a72-8a64-28de5f82a5c2
+        type: string
+      email:
+        example: user@example.com
+        type: string
+      full_name:
+        example: Ali Rezaei
+        type: string
+      password:
+        example: P@ssw0rd123
+        minLength: 8
+        type: string
+    required:
+    - captcha_ans
+    - captcha_id
+    - email
+    - full_name
+    - password
+    type: object
+  Exchange_internal_model.Response:
+    properties:
+      code:
+        description: HTTP status code
+        type: integer
+      data:
+        description: داده (در صورت موفقیت)
+      error_code:
+        description: کد یکتا برای خطا (اختیاری)
+        type: string
+      message:
+        description: پیام (موفق یا خطا)
+        type: string
+      success:
+        description: وضعیت موفقیت
+        type: boolean
+    type: object
+  Exchange_internal_model.Verify2FARequest:
+    properties:
+      code:
+        type: string
+      user_id:
+        type: string
+    required:
+    - code
+    - user_id
+    type: object
+  Exchange_internal_model.WalletDepositRequest:
+    properties:
+      amount:
+        type: number
+      currency_id:
+        type: string
+      user_id:
+        type: string
+    required:
+    - amount
+    - currency_id
+    - user_id
+    type: object
+  Exchange_internal_model.WalletWithdrawRequest:
+    properties:
+      amount:
+        type: number
+      user_id:
+        type: string
+    required:
+    - amount
+    - user_id
+    type: object
+  internal_delivery_handler.VerifyRequest:
+    properties:
+      request_id:
+        type: string
+      user_input:
+        type: string
+    required:
+    - request_id
+    - user_input
+    type: object
+host: localhost:7000
+info:
+  contact: {}
+  description: Exchange cryptocurrency trading platform
+  title: Exchange API
+  version: "1.0"
+paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: احراز هویت کاربر با ایمیل، رمز عبور و کپچا. در صورت فعال بودن 2FA،
+        ارسال کد تایید دو عاملی
+      parameters:
+      - description: اطلاعات ورود همراه کپچا
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Exchange_internal_model.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ورود موفق بدون 2FA
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "202":
+          description: کد 2FA ارسال شد، منتظر تایید باشید
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "400":
+          description: بدنه درخواست یا کپچا نامعتبر
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "401":
+          description: اطلاعات ورود یا کپچا اشتباه
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "500":
+          description: خطای داخلی سرور
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      summary: ورود کاربر
+      tags:
+      - auth
+  /auth/logout:
+    post:
+      consumes:
+      - application/json
+      description: Revoke access token and end user session
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Logout successful
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "400":
+          description: Bad request or missing authorization
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "401":
+          description: Unauthorized or invalid token
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      security:
+      - BearerAuth: []
+      summary: User logout
+      tags:
+      - auth
+  /auth/refresh:
+    post:
+      consumes:
+      - application/json
+      description: Generate new access token using refresh token
+      parameters:
+      - description: Refresh token info
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Exchange_internal_model.RefreshTokenRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Token refreshed successfully
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "401":
+          description: Unauthorized or expired token
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      summary: Refresh access token
+      tags:
+      - auth
+  /auth/register:
+    post:
+      consumes:
+      - application/json
+      description: ایجاد حساب کاربری جدید با ایمیل، نام کامل، رمز عبور و اعتبارسنجی
+        کپچا
+      parameters:
+      - description: اطلاعات ثبت‌نام شامل کپچا
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Exchange_internal_model.RegisterRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ثبت‌نام موفق
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "400":
+          description: بدنه درخواست نامعتبر یا کپچا اشتباه
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "409":
+          description: کاربر قبلا ثبت شده
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "500":
+          description: خطای داخلی سرور
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      summary: ثبت نام کاربر
+      tags:
+      - auth
+  /auth/verify-2fa:
+    post:
+      consumes:
+      - application/json
+      description: Verify 2FA code sent via email or SMS during login or registration
+      parameters:
+      - description: 2FA code verification info
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Exchange_internal_model.Verify2FARequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 2FA verification successful, tokens issued
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "401":
+          description: Invalid or expired 2FA code
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      summary: Verify 2FA code
+      tags:
+      - auth
+  /captcha:
+    get:
+      description: Generates a captcha image and returns it along with a unique request_id.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: JSON response with request_id and base64 captcha string.
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "500":
+          description: Failed to generate or store captcha
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      summary: Generate captcha image
+      tags:
+      - captcha
+  /captcha/verify:
+    post:
+      consumes:
+      - application/json
+      description: Verify user input against the stored captcha text.
+      parameters:
+      - description: Captcha verification info
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/internal_delivery_handler.VerifyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Captcha is valid
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "400":
+          description: Invalid request body or captcha not found
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "401":
+          description: Invalid captcha input
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      summary: Verify captcha input
+      tags:
+      - captcha
+  /currencies:
+    get:
+      description: دریافت لیست تمام ارزهای فعال موجود در سیستم
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: لیست ارزها
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "500":
+          description: خطای داخلی سرور
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      security:
+      - BearerAuth: []
+      summary: لیست ارزها
+      tags:
+      - currency
+  /health:
+    get:
+      consumes:
+      - application/json
+      description: چک سلامت اتصال به دیتابیس و وضعیت کلی سرور
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "503":
+          description: Service Unavailable
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+      security:
+      - BearerAuth: []
+      summary: بررسی سلامت سرویس
+      tags:
+      - health
+  /wallets:
+    get:
+      description: دریافت لیست کیف پول‌های یک کاربر
+      parameters:
+      - description: شناسه کاربر
+        in: query
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: لیست کیف پول‌ها
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "400":
+          description: درخواست نامعتبر
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "500":
+          description: خطای داخلی سرور
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      security:
+      - BearerAuth: []
+      summary: لیست کیف پول‌ها
+      tags:
+      - wallet
+  /wallets/{wallet_id}/withdraw:
+    post:
+      consumes:
+      - application/json
+      description: برداشت مبلغ مشخص از کیف پول یک کاربر
+      parameters:
+      - description: شناسه کیف پول
+        in: path
+        name: wallet_id
+        required: true
+        type: string
+      - description: اطلاعات برداشت
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Exchange_internal_model.WalletWithdrawRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: برداشت موفق
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "400":
+          description: درخواست نامعتبر
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "403":
+          description: دسترسی غیرمجاز
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "404":
+          description: کیف پول پیدا نشد
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "500":
+          description: خطای داخلی سرور
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      security:
+      - BearerAuth: []
+      summary: برداشت از کیف پول
+      tags:
+      - wallet
+  /wallets/deposit:
+    post:
+      consumes:
+      - application/json
+      description: واریز مبلغ مشخص به کیف پول یک کاربر
+      parameters:
+      - description: شناسه کیف پول
+        in: path
+        name: wallet_id
+        required: true
+        type: string
+      - description: اطلاعات واریز
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Exchange_internal_model.WalletDepositRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: واریز موفق
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.Response'
+        "400":
+          description: درخواست نامعتبر
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "403":
+          description: دسترسی غیرمجاز
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "404":
+          description: کیف پول پیدا نشد
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+        "500":
+          description: خطای داخلی سرور
+          schema:
+            $ref: '#/definitions/Exchange_internal_model.ErrorResponseStruct'
+      security:
+      - BearerAuth: []
+      summary: واریز به کیف پول
+      tags:
+      - wallet
+schemes:
+- http
+- https
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

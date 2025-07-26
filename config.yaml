@@ -1,0 +1,42 @@
+env: development
+port: 7000
+
+log:
+  enable: true
+  level: info
+  timeLayout: "2006-01-02 15:04:05"
+  caller: true
+  trace: false
+  filePath: "logs/app.log"
+  fileMaxSize: 10          # حداکثر حجم فایل لاگ (مگابایت)
+  fileMaxBackups: 5        # تعداد فایل‌های پشتیبان لاگ
+  fileMaxAge: 30           # حداکثر روز نگهداری فایل لاگ
+  fileCompress: true       # فشرده‌سازی فایل‌های پشتیبان
+
+postgres:
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  password: "@liSS1625"
+  dbName: "exchange"
+  sslMode: "disable"       # یا "require" اگر SSL لازم است
+
+jwt:
+  secretKey: "f83@uY$!eK2vN#z5L&9qPxT3sR"  # کلید قوی، حداقل 256 بیت
+  tokenExpiration: 15m                    # انقضای کوتاه برای access token
+  refreshExpiration: 720h                 # انقضای بلند برای refresh token
+
+exchangeClient:
+  timeout: 10s             # تایم‌اوت HTTP کلاینت
+
+
+http:
+  port: 7000
+  mode: debug
+  guard: ""             # اگر گارد امنیتی خاصی داری اینجا قرار بده
+
+
+redis:
+  addr: localhost:6379
+  password: ""
+  db: 0
