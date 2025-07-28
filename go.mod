@@ -1,4 +1,4 @@
-module exchange-common
+module github.com/alisiahmansouri/exchange-common
 
 go 1.23.3
 
