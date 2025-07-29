@@ -1,7 +1,7 @@
 package model
 
 import (
-	"exchange-common/internal/entity"
+	"github.com/alisiahmansouri/exchange-common/entity"
 	"github.com/google/uuid"
 )
 
