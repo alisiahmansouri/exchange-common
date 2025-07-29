@@ -2,6 +2,7 @@ package entity
 
 import (
 	"github.com/google/uuid"
+	"gorm.io/gorm"
 	"time"
 )
 
@@ -28,6 +29,13 @@ type WalletLog struct {
 	Amount    float64       `gorm:"type:decimal(38,18);not null"`
 	Meta      *string       `gorm:"type:text" json:"meta,omitempty"`
 	CreatedAt time.Time     `gorm:"not null"`
+}
+
+func (w *WalletLog) BeforeCreate(tx *gorm.DB) (err error) {
+	w.ID = uuid.New()
+	now := time.Now()
+	w.CreatedAt = now
+	return
 }
 
 func NewWalletLog(walletID, userID uuid.UUID, logType string, amount float64, meta *string) WalletLog {
