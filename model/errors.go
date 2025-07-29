@@ -51,3 +51,16 @@ var (
 	Err2FACodeUsed    = errors.New("کد 2FA قبلا استفاده شده است")
 	Err2FACodeExpired = errors.New("کد 2FA منقضی شده است")
 )
+
+var (
+	ErrDepositAmountInvalid    = errors.New("مبلغ واریز باید بزرگتر از صفر باشد")
+	ErrWithdrawAmountInvalid   = errors.New("مبلغ برداشت باید بزرگتر از صفر باشد")
+	ErrWalletNotFound          = errors.New("کیف پول یافت نشد")
+	ErrWalletUnauthorized      = errors.New("دسترسی به کیف پول غیرمجاز است")
+	ErrInsufficientFunds       = errors.New("موجودی کافی نیست")
+	ErrWalletInactive          = errors.New("کیف پول غیر فعال است")
+	ErrAmountInvalid           = errors.New("مقدار نامعتبر است")
+	ErrFrozenInsufficientFunds = errors.New("موجودی فریز شده کافی نیست")
+	ErrWalletAlreadyExists     = errors.New("این کیف پول قبلا ایجاد شده است")
+	ErrBulkOpInvalidType       = errors.New("نوع عملیات گروهی نامعتبر است")
+)
