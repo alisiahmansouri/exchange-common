@@ -1,14 +1,13 @@
 package util
 
-
 import (
+	"crypto/rand"
 	"errors"
 	"github.com/google/uuid"
 	"regexp"
 	"strings"
 	"unicode"
 )
-import "crypto/rand"
 
 func ParseUUID(value string) (uuid.UUID, error) {
 	return uuid.Parse(value)

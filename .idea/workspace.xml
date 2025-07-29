@@ -5,96 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b2086c6-f77a-477d-b7bb-87f9c8e1d8db" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/exchange.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/Vazirmatn-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/docs.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/swagger.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/swagger.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/cache/redis.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/captcha/store.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/consts/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/consts/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/consts/captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/consts/captcha.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/consts/currency.go" beforeDir="false" afterPath="$PROJECT_DIR$/consts/currency.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/consts/helper.go" beforeDir="false" afterPath="$PROJECT_DIR$/consts/helper.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/consts/wallet.go" beforeDir="false" afterPath="$PROJECT_DIR$/consts/wallet.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/db/db.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/db/postgres.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/db/seed.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/auth/auth_handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/auth/helper.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/auth/login.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/auth/logout.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/auth/password.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/auth/refresh.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/auth/register.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/auth/verify_2FA.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/captcha.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/currency.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/helper.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/handler/wallet.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/interface.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/requestmeta/requestmeta.go" beforeDir="false" afterPath="$PROJECT_DIR$/requestmeta/requestmeta.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/delivery/router.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/entity/currency.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/currency.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/entity/order.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/order.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/entity/pair.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/pair.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/entity/transaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/transaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/entity/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/entity/verification_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/verification_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/entity/wallet.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/wallet.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/health/handler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/health/router.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/gorm_logger.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/logger/logger.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/middleware/auth.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/middleware/logger.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/middleware/rate_limiter.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/middleware/request_info.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/middleware/timeout.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/model/auth.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/model/captcha.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/captcha.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/model/currency.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/currency.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/model/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/errors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/model/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/model/wallet.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/wallet.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/richerror/http.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/richerror/rich_error.go" beforeDir="false" afterPath="$PROJECT_DIR$/richerror/rich_error.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/auth_service/authenticate.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/auth_service/delete.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/auth_service/password.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/auth_service/regsiter.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/auth_service/repository.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/auth_service/service.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/auth_service/verify.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/currency.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/jwt/service.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/repository.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/repository/gorm_repository.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/repository/gorm_repository_currency.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/repository/gorm_repository_user.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/repository/gorm_repository_verification.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/repository/gorm_repository_wallet.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/service.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/verification_service/repository.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/verification_service/send.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/verification_service/service.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/verification_service/verify.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/wallet.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/util/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/util.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/app.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requestmeta/requestmeta.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/util.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +22,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://$PROJECT_DIR$/../../pkg/mod/golang.org/toolchain@v0.0.1-go1.23.6.windows-amd64" />
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../Program Files/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
