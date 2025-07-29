@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b2086c6-f77a-477d-b7bb-87f9c8e1d8db" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/exchange-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/exchange-common.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/WalletLog.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/currency.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/currency.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/order.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/order.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/pair.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/pair.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/transaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/transaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/wallet.go" beforeDir="false" afterPath="$PROJECT_DIR$/entity/wallet.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/currency.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/currency.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wallet.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/wallet.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
