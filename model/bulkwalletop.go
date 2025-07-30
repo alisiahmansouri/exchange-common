@@ -8,11 +8,13 @@ import (
 type BulkWalletOpType string
 
 const (
-	BulkOpDeposit  BulkWalletOpType = "deposit"
-	BulkOpWithdraw BulkWalletOpType = "withdraw"
-	BulkOpFreeze   BulkWalletOpType = "freeze"
-	BulkOpUnfreeze BulkWalletOpType = "unfreeze"
-	BulkOpAdjust   BulkWalletOpType = "adjust"
+	BulkOpDeposit     BulkWalletOpType = "deposit"
+	BulkOpWithdraw    BulkWalletOpType = "withdraw"
+	BulkOpFreeze      BulkWalletOpType = "freeze"
+	BulkOpUnfreeze    BulkWalletOpType = "unfreeze"
+	BulkOpAdjust      BulkWalletOpType = "adjust"
+	BulkOpTransferIn  BulkWalletOpType = "transfer-in"
+	BulkOpTransferOut BulkWalletOpType = "transfer-out"
 )
 
 // BulkWalletOp مدل حرفه‌ای برای یک عملیات گروهی روی کیف پول (برای ایردراپ، اصلاح موجودی، تسویه، ...)
