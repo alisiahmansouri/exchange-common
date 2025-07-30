@@ -6,6 +6,7 @@ import (
 	"github.com/google/uuid"
 	"regexp"
 	"strings"
+	"time"
 	"unicode"
 )
 
@@ -148,3 +149,5 @@ func Get2FAChannelByIdentifier(identifier string) string {
 
 	return ""
 }
+
+func NowUTC() time.Time { return time.Now().UTC() }

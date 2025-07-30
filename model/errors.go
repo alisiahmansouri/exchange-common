@@ -64,3 +64,14 @@ var (
 	ErrWalletAlreadyExists     = errors.New("این کیف پول قبلا ایجاد شده است")
 	ErrBulkOpInvalidType       = errors.New("نوع عملیات گروهی نامعتبر است")
 )
+
+var (
+	ErrOrderAmountInvalid       = errors.New("مقدار سفارش نامعتبر است")
+	ErrOrderLimitPriceRequired  = errors.New("قیمت سفارش limit باید مشخص باشد")
+	ErrOrderUserIDInvalid       = errors.New("شناسه کاربر نامعتبر است")
+	ErrPairIDInvalid            = errors.New("شناسه جفت ارز نامعتبر است")
+	ErrOrderSideInvalid         = errors.New("نوع سفارش (side) نامعتبر است")
+	ErrPairNotFoundOrInactive   = errors.New("جفت ارز یافت نشد یا فعال نیست")
+	ErrOrderAmountOutOfRange    = errors.New("مقدار سفارش خارج از بازه مجاز است")
+	ErrWalletNotFoundOrInactive = errors.New("کیف پول یافت نشد یا فعال نیست")
+)
