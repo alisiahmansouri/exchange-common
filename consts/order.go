@@ -12,6 +12,7 @@ const (
 const (
 	MsgOrderPlacedSuccessfully   = "سفارش با موفقیت ثبت شد"
 	MsgOrderCanceledSuccessfully = "سفارش با موفقیت لغو شد"
+	MsgOrderFound                = "سفارش با موفقیت دریافت شد"
 )
 
 // --- پیام‌های خطای سفارش ---
