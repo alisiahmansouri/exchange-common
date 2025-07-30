@@ -80,3 +80,19 @@ var (
 	ErrOrderNotFound            = errors.New("سفارش یافت نشد")
 	ErrOrderCannotBeCanceled    = errors.New("این سفارش امکان لغو شدن ندارد")
 )
+
+// --- خطاهای سفارش (Order Errors) ---
+var (
+	ErrOrderInsufficientFunds    = errors.New("موجودی کافی برای ثبت سفارش وجود ندارد")
+	ErrOrderConflict             = errors.New("سفارش متناقض یا تکراری است")
+	ErrOrderTooManyRequests      = errors.New("تعداد درخواست‌های سفارش بیش از حد مجاز است")
+	ErrOrderTimeout              = errors.New("ثبت سفارش به علت محدودیت زمانی انجام نشد")
+	ErrOrderCreate               = errors.New("خطا در ثبت سفارش")
+	ErrOrderStatusInvalid        = errors.New("وضعیت سفارش نامعتبر است")
+	ErrOrderAlreadyCanceled      = errors.New("سفارش قبلاً لغو شده است")
+	ErrOrderAlreadyCompleted     = errors.New("سفارش قبلاً تکمیل شده است")
+	ErrOrderFillAmountInvalid    = errors.New("مقدار پر شده سفارش نامعتبر است")
+	ErrOrderUnfreezingFailed     = errors.New("آزادسازی مبلغ بلوکه شده با خطا مواجه شد")
+	ErrOrderWalletFreezeFailed   = errors.New("فریز کردن مبلغ سفارش با خطا مواجه شد")
+	ErrOrderMaxOpenOrdersReached = errors.New("حداکثر تعداد سفارش باز مجاز برای کاربر پر شده است")
+)

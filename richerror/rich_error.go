@@ -10,15 +10,16 @@ import (
 type Kind string
 
 const (
-	KindValidation      Kind = "validation"
-	KindNotFound        Kind = "not_found"
-	KindUnauthorized    Kind = "unauthorized"
-	KindInternal        Kind = "internal"
-	KindForbidden       Kind = "forbidden"
-	KindInvalid         Kind = "invalid"
-	KindConflict        Kind = "conflict"
-	KindTooManyRequests Kind = "too_many_requests"
-	KindTimeout         Kind = "timeout"
+	KindValidation        Kind = "validation"         // خطاهای اعتبارسنجی ورودی
+	KindNotFound          Kind = "not_found"          // موجودیت پیدا نشد (مثلاً کاربر یا سفارش)
+	KindUnauthorized      Kind = "unauthorized"       // عدم احراز هویت (توکن نامعتبر یا غیرفعال)
+	KindInternal          Kind = "internal"           // خطای داخلی سرور
+	KindForbidden         Kind = "forbidden"          // دسترسی غیرمجاز (ولی کاربر احراز شده)
+	KindInvalid           Kind = "invalid"            // داده نامعتبر (عمومی‌تر از validation)
+	KindConflict          Kind = "conflict"           // تداخل (مثلاً سفارش تکراری، وضعیت متناقض)
+	KindTooManyRequests   Kind = "too_many_requests"  // محدودیت نرخ درخواست یا حمله
+	KindTimeout           Kind = "timeout"            // زمان درخواست تمام شد (timeout)
+	KindInsufficientFunds Kind = "insufficient_funds" // موجودی ناکافی (ویژه پروژه مالی)
 )
 
 // RichError ساختار کامل برای حمل خطا با زمینه‌های مفید
