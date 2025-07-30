@@ -58,8 +58,14 @@ func ToOrderResponse(order *entity.Order) *OrderResponse {
 }
 
 func ToOrderResponseList(orders []*entity.Order) []*OrderResponse {
+	if len(orders) == 0 {
+		return []*OrderResponse{}
+	}
 	out := make([]*OrderResponse, 0, len(orders))
 	for _, o := range orders {
+		if o == nil {
+			continue // اگر احیاناً nil باشه
+		}
 		out = append(out, ToOrderResponse(o))
 	}
 	return out
