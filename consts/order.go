@@ -1,6 +1,6 @@
 package consts
 
-// --- عملیات‌ (Operation) های Handler/UseCase سفارش ---
+// --- عملیات‌های Handler/UseCase سفارش ---
 const (
 	OpOrderPlaceOrder = "OrderHandler.PlaceOrder"
 	OpOrderGetByID    = "OrderHandler.GetOrderByID"
@@ -8,7 +8,13 @@ const (
 	OpOrderCancel     = "OrderHandler.CancelOrder"
 )
 
-// --- پیام‌های خطا و موفقیت سفارش ---
+// --- پیام‌های موفقیت‌آمیز سفارش ---
+const (
+	MsgOrderPlacedSuccessfully   = "سفارش با موفقیت ثبت شد"
+	MsgOrderCanceledSuccessfully = "سفارش با موفقیت لغو شد"
+)
+
+// --- پیام‌های خطای سفارش ---
 const (
 	ErrOrderInvalidBody              = "بدنه درخواست سفارش نامعتبر است"
 	ErrOrderCreateFailed             = "خطا در ثبت سفارش"
@@ -25,9 +31,15 @@ const (
 	ErrOrderConflict                 = "سفارش متناقض یا تکراری است"
 	ErrOrderTooManyRequests          = "تعداد درخواست‌های سفارش بیش از حد مجاز است"
 	ErrOrderTimeout                  = "ثبت سفارش به علت محدودیت زمانی انجام نشد"
+	ErrOrderInvalidSide              = "جهت سفارش (خرید/فروش) نامعتبر است"
+	ErrOrderClientOrderIDTooLong     = "clientOrderID بیش از حد طولانی است"
+	ErrOrderInvalidLimitPrice        = "قیمت سفارش limit نامعتبر است"
+	ErrOrderPairIDInvalid            = "شناسه جفت ارز نامعتبر است"
+	ErrOrderInputInvalid             = "داده ورودی سفارش نامعتبر است"
+	ErrInternal                      = "خطای داخلی سرور"
 )
 
-// --- کدهای خطا (Error Code) سفارش ---
+// --- کدهای خطای سفارش (Error Code) ---
 const (
 	CodeOrderInvalidBody              = "ORDER_INVALID_BODY"
 	CodeOrderCreateError              = "ORDER_CREATE_ERROR"
@@ -44,20 +56,10 @@ const (
 	CodeOrderConflict                 = "ORDER_CONFLICT"
 	CodeOrderTooManyRequests          = "ORDER_TOO_MANY_REQUESTS"
 	CodeOrderTimeout                  = "ORDER_TIMEOUT"
-)
-
-// --- پیام‌های موفقیت‌آمیز سفارش ---
-const (
-	MsgOrderPlacedSuccessfully   = "سفارش با موفقیت ثبت شد"
-	MsgOrderCanceledSuccessfully = "سفارش با موفقیت لغو شد"
-)
-
-const (
-	ErrOrderInvalidSide  = "جهت سفارش (خرید/فروش) نامعتبر است"
-	CodeOrderInvalidSide = "ORDER_INVALID_SIDE"
-)
-
-const (
-	ErrInternal  = "خطای داخلی سرور"
-	CodeInternal = "INTERNAL_ERROR"
+	CodeOrderInvalidSide              = "ORDER_INVALID_SIDE"
+	CodeOrderClientOrderIDTooLong     = "ORDER_CLIENT_ORDER_ID_TOO_LONG"
+	CodeOrderInvalidLimitPrice        = "ORDER_INVALID_LIMIT_PRICE"
+	CodeOrderPairIDInvalid            = "ORDER_PAIR_ID_INVALID"
+	CodeOrderInputInvalid             = "ORDER_INPUT_INVALID"
+	CodeInternal                      = "INTERNAL_ERROR"
 )
