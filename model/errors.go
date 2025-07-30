@@ -2,6 +2,7 @@ package model
 
 import "errors"
 
+// --- خطای عمومی ---
 var (
 	ErrInternal = errors.New("خطای داخلی سرور")
 )
@@ -21,7 +22,7 @@ var (
 // --- خطاهای مربوط به کد تایید (Verification Code) ---
 var (
 	ErrVerificationCodeInvalidOrExpired = errors.New("کد تایید نامعتبر یا منقضی شده است")
-	ErrVerificationCodeAlreadyUsed      = errors.New("کد تایید قبلا استفاده شده است")
+	ErrVerificationCodeAlreadyUsed      = errors.New("کد تایید قبلاً استفاده شده است")
 	ErrVerificationCodeExpired          = errors.New("کد تایید منقضی شده است")
 	ErrVerificationCodeInvalid          = errors.New("کد تایید نامعتبر است")
 	ErrVerificationCodeNotFound         = errors.New("کد تایید یافت نشد")
@@ -37,21 +38,22 @@ var (
 // --- خطاهای مرتبط با ریست پسورد ---
 var (
 	ErrResetPasswordInvalidOrExpiredCode = errors.New("کد بازیابی رمزعبور نامعتبر یا منقضی شده است")
-	ErrResetPasswordCodeUsed             = errors.New("کد بازیابی رمزعبور قبلا استفاده شده است")
+	ErrResetPasswordCodeUsed             = errors.New("کد بازیابی رمزعبور قبلاً استفاده شده است")
 	ErrUserNotFound                      = errors.New("کاربر یافت نشد")
 )
 
 // --- خطاهای کاربر و 2FA ---
 var (
-	ErrUserExists   = errors.New("کاربر با این ایمیل قبلا ثبت شده است")
-	ErrInvalidCreds = errors.New("اطلاعات ورود نادرست است")
+	ErrUserExists   = errors.New("کاربر با این ایمیل قبلاً ثبت شده است")
+	ErrInvalidCreds = errors.New("اطلاعات ورود نامعتبر است")
 	ErrUserInactive = errors.New("کاربر غیر فعال است")
 
-	Err2FACodeInvalid = errors.New("کد 2FA معتبر نیست")
-	Err2FACodeUsed    = errors.New("کد 2FA قبلا استفاده شده است")
-	Err2FACodeExpired = errors.New("کد 2FA منقضی شده است")
+	Err2FACodeInvalid = errors.New("کد ورود دو مرحله‌ای نامعتبر است")
+	Err2FACodeUsed    = errors.New("کد ورود دو مرحله‌ای قبلاً استفاده شده است")
+	Err2FACodeExpired = errors.New("کد ورود دو مرحله‌ای منقضی شده است")
 )
 
+// --- خطاهای کیف پول ---
 var (
 	ErrDepositAmountInvalid    = errors.New("مبلغ واریز باید بزرگتر از صفر باشد")
 	ErrWithdrawAmountInvalid   = errors.New("مبلغ برداشت باید بزرگتر از صفر باشد")
@@ -59,22 +61,22 @@ var (
 	ErrWalletUnauthorized      = errors.New("دسترسی به کیف پول غیرمجاز است")
 	ErrInsufficientFunds       = errors.New("موجودی کافی نیست")
 	ErrWalletInactive          = errors.New("کیف پول غیر فعال است")
-	ErrAmountInvalid           = errors.New("مقدار نامعتبر است")
+	ErrAmountInvalid           = errors.New("مقدار وارد شده نامعتبر است")
 	ErrFrozenInsufficientFunds = errors.New("موجودی فریز شده کافی نیست")
-	ErrWalletAlreadyExists     = errors.New("این کیف پول قبلا ایجاد شده است")
+	ErrWalletAlreadyExists     = errors.New("این کیف پول قبلاً ایجاد شده است")
 	ErrBulkOpInvalidType       = errors.New("نوع عملیات گروهی نامعتبر است")
 )
 
+// --- خطاهای سفارش و جفت‌ارز ---
 var (
 	ErrOrderAmountInvalid       = errors.New("مقدار سفارش نامعتبر است")
 	ErrOrderLimitPriceRequired  = errors.New("قیمت سفارش limit باید مشخص باشد")
-	ErrOrderUserIDInvalid       = errors.New("شناسه کاربر نامعتبر است")
+	ErrOrderUserIDInvalid       = errors.New("شناسه کاربر سفارش نامعتبر است")
 	ErrPairIDInvalid            = errors.New("شناسه جفت ارز نامعتبر است")
-	ErrOrderSideInvalid         = errors.New("نوع سفارش (side) نامعتبر است")
+	ErrOrderSideInvalid         = errors.New("نوع سفارش (خرید یا فروش) نامعتبر است")
 	ErrPairNotFoundOrInactive   = errors.New("جفت ارز یافت نشد یا فعال نیست")
 	ErrOrderAmountOutOfRange    = errors.New("مقدار سفارش خارج از بازه مجاز است")
 	ErrWalletNotFoundOrInactive = errors.New("کیف پول یافت نشد یا فعال نیست")
-	ErrOrderNotFound            = errors.New("order not found")
-
-	ErrOrderCannotBeCanceled = errors.New("this order cannot be canceled")
+	ErrOrderNotFound            = errors.New("سفارش یافت نشد")
+	ErrOrderCannotBeCanceled    = errors.New("این سفارش امکان لغو شدن ندارد")
 )
