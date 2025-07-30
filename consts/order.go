@@ -51,3 +51,13 @@ const (
 	MsgOrderPlacedSuccessfully   = "سفارش با موفقیت ثبت شد"
 	MsgOrderCanceledSuccessfully = "سفارش با موفقیت لغو شد"
 )
+
+const (
+	ErrOrderInvalidSide  = "جهت سفارش (خرید/فروش) نامعتبر است"
+	CodeOrderInvalidSide = "ORDER_INVALID_SIDE"
+)
+
+const (
+	ErrInternal  = "خطای داخلی سرور"
+	CodeInternal = "INTERNAL_ERROR"
+)
