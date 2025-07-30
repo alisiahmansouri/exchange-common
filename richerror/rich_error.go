@@ -33,6 +33,16 @@ type RichError struct {
 	Msg         string // توضیح فنی برای لاگ
 }
 
+func KindOf(err error) Kind {
+	if err == nil {
+		return ""
+	}
+	if re, ok := err.(*RichError); ok {
+		return re.Kind
+	}
+	return KindInternal
+}
+
 // Error رشته متنی خطا را برمی‌گرداند
 func (r *RichError) Error() string {
 	if r.Msg != "" {
