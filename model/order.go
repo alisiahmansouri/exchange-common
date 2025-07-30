@@ -57,6 +57,8 @@ func ToOrderResponse(order *entity.Order) *OrderResponse {
 	}
 }
 
+// ToOrderResponseList maps a slice of entity.Order to a slice of safe API OrderResponse objects.
+// Returns an empty slice if input is nil or empty.
 func ToOrderResponseList(orders []*entity.Order) []*OrderResponse {
 	if len(orders) == 0 {
 		return []*OrderResponse{}
@@ -64,7 +66,7 @@ func ToOrderResponseList(orders []*entity.Order) []*OrderResponse {
 	out := make([]*OrderResponse, 0, len(orders))
 	for _, o := range orders {
 		if o == nil {
-			continue // اگر احیاناً nil باشه
+			continue // Defensive: skip nil orders (should not happen in real DB)
 		}
 		out = append(out, ToOrderResponse(o))
 	}
