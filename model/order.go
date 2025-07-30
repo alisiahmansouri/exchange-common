@@ -56,3 +56,11 @@ func ToOrderResponse(order *entity.Order) *OrderResponse {
 		ExecutedAt:    order.ExecutedAt,
 	}
 }
+
+func ToOrderResponseList(orders []*entity.Order) []*OrderResponse {
+	out := make([]*OrderResponse, 0, len(orders))
+	for _, o := range orders {
+		out = append(out, ToOrderResponse(o))
+	}
+	return out
+}
