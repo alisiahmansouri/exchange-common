@@ -74,4 +74,7 @@ var (
 	ErrPairNotFoundOrInactive   = errors.New("جفت ارز یافت نشد یا فعال نیست")
 	ErrOrderAmountOutOfRange    = errors.New("مقدار سفارش خارج از بازه مجاز است")
 	ErrWalletNotFoundOrInactive = errors.New("کیف پول یافت نشد یا فعال نیست")
+	ErrOrderNotFound            = errors.New("order not found")
+
+	ErrOrderCannotBeCanceled = errors.New("this order cannot be canceled")
 )
