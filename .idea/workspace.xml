@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b2086c6-f77a-477d-b7bb-87f9c8e1d8db" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/model/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/errors.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entity/trade.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +61,11 @@
       <recent name="C:\Users\a.siahmansouri\go\src\exchange\assets\fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\a.siahmansouri\go\src\exchange-common\entity" />
       <recent name="C:\Users\a.siahmansouri\go\src\exchange-common" />
       <recent name="C:\Users\a.siahmansouri\go\src\exchange\internal\service\verification" />
       <recent name="C:\Users\a.siahmansouri\go\src\exchange\internal\service\auth" />
       <recent name="C:\Users\a.siahmansouri\go\src\exchange\internal" />
-      <recent name="C:\Users\a.siahmansouri\go\src\exchange\internal\model" />
     </key>
   </component>
   <component name="RunManager">
