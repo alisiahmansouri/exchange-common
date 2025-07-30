@@ -50,3 +50,10 @@ var ExampleBulkOps = []BulkWalletOp{
 
 // ptr یک کمک ساده برای مقداردهی اشاره‌گر به string
 func ptr(s string) *string { return &s }
+
+func (op BulkWalletOp) NoteString() string {
+	if op.Note != nil {
+		return *op.Note
+	}
+	return ""
+}
