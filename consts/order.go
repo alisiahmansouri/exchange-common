@@ -1,6 +1,6 @@
 package consts
 
-// --- عملیات‌های Handler/UseCase سفارش ---
+// =================== عملیات‌های Handler/UseCase سفارش ===================
 const (
 	OpOrderPlaceOrder = "OrderHandler.PlaceOrder"
 	OpOrderGetByID    = "OrderHandler.GetOrderByID"
@@ -8,14 +8,15 @@ const (
 	OpOrderCancel     = "OrderHandler.CancelOrder"
 )
 
-// --- پیام‌های موفقیت‌آمیز سفارش ---
+// =================== پیام‌های موفقیت‌آمیز سفارش ===================
 const (
 	MsgOrderPlacedSuccessfully   = "سفارش با موفقیت ثبت شد"
 	MsgOrderCanceledSuccessfully = "سفارش با موفقیت لغو شد"
 	MsgOrderFound                = "سفارش با موفقیت دریافت شد"
+	MsgOrdersListedSuccessfully  = "لیست سفارشات با موفقیت دریافت شد"
 )
 
-// --- پیام‌های خطای سفارش ---
+// =================== پیام‌های خطای سفارش ===================
 const (
 	ErrOrderInvalidBody              = "بدنه درخواست سفارش نامعتبر است"
 	ErrOrderCreateFailed             = "خطا در ثبت سفارش"
@@ -40,7 +41,7 @@ const (
 	ErrInternal                      = "خطای داخلی سرور"
 )
 
-// --- کدهای خطای سفارش (Error Code) ---
+// =================== کدهای خطای سفارش (Error Code) ===================
 const (
 	CodeOrderInvalidBody              = "ORDER_INVALID_BODY"
 	CodeOrderCreateError              = "ORDER_CREATE_ERROR"
