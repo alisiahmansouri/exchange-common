@@ -19,7 +19,8 @@ type OutboxEvent struct {
 	Status       string    `gorm:"size:16;default:pending"`
 	CreatedAt    time.Time
 	SentAt       *time.Time
-	ErrorMessage *string `gorm:"size:255"` // اختیاری: ثبت آخرین خطای ارسال
+	ErrorMessage *string `gorm:"size:255"`
+	RetryCount   int     `gorm:"default:0"`
 }
 
 // Optional: Custom table name (if you want)
