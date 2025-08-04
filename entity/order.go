@@ -41,6 +41,7 @@ type Order struct {
 	UserID        uuid.UUID        `gorm:"type:uuid;not null;index" json:"user_id"`
 	WalletID      uuid.UUID        `gorm:"type:uuid;not null;index" json:"wallet_id"`
 	PairID        uuid.UUID        `gorm:"type:uuid;not null;index" json:"pair_id"`
+	SettlementID  *uuid.UUID       `gorm:"type:uuid;index" json:"settlement_id,omitempty"`              //
 	OrderType     OrderType        `gorm:"type:varchar(10);not null" json:"order_type"`                 // limit, market
 	Side          OrderSide        `gorm:"type:varchar(10);not null" json:"side"`                       // buy, sell
 	Amount        float64          `gorm:"type:decimal(38,18);not null" json:"amount"`                  // کل مقدار سفارش

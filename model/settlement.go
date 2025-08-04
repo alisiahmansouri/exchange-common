@@ -19,3 +19,11 @@ type SettleTradeEvent struct {
 	// Future fields:
 	// Metadata      map[string]string `json:"metadata,omitempty"`
 }
+
+// نتیجه ذخیره‌شده تسویه (در Redis)
+type SettleTradeResult struct {
+	Status       string    `json:"status"`
+	SettlementID string    `json:"settlement_id,omitempty"`
+	Timestamp    time.Time `json:"timestamp"`
+	Message      string    `json:"message,omitempty"`
+}
