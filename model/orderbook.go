@@ -10,7 +10,8 @@ type OrderBook struct {
 }
 
 type OrderBookItem struct {
-	Price    float64  `json:"price"`
-	Amount   float64  `json:"amount"`
-	OrderIDs []string `json:"order_ids,omitempty"`
+	Price      float64  `json:"price"`
+	Amount     float64  `json:"amount"`
+	OrderIDs   []string `json:"order_ids,omitempty"`
+	LastUpdate int64    `json:"last_update"`
 }
