@@ -14,19 +14,20 @@ const (
 
 type OutboxEvent struct {
 	ID           uuid.UUID `gorm:"type:uuid;primaryKey"`
-	EventType    string    `gorm:"size:64"`
-	Payload      []byte    `gorm:"type:jsonb"`
-	Status       string    `gorm:"size:16;default:pending"`
-	CreatedAt    time.Time
+	EventType    string    `gorm:"size:64;not null;index:idx_outbox_type_dedup,priority:1"`
+	DedupKey     string    `gorm:"type:char(64);not null;index:idx_outbox_type_dedup,unique,priority:2"` // SHA-256 hex
+	PairID       uuid.UUID `gorm:"type:uuid;index:idx_outbox_pair_seq,priority:1"`                       // برای ordering و شاردینگ
+	Sequence     uint64    `gorm:"not null;default:0;index:idx_outbox_pair_seq,priority:2"`              // ترتیب قطعی در هر Pair
+	Payload      []byte    `gorm:"type:jsonb;not null"`
+	Status       string    `gorm:"size:16;not null;default:pending;index:idx_outbox_status_created"`
+	CreatedAt    time.Time `gorm:"not null;index:idx_outbox_status_created"`
 	SentAt       *time.Time
-	ErrorMessage *string `gorm:"size:255"`
-	RetryCount   int     `gorm:"default:0"`
+	ErrorMessage *string `gorm:"size:500"`
+	RetryCount   int     `gorm:"not null;default:0"`
 }
 
-// Optional: Custom table name (if you want)
 func (OutboxEvent) TableName() string { return "match_events_outbox" }
 
-// Optional: Unmarshal payload helper
 func (e *OutboxEvent) UnmarshalPayload(v interface{}) error {
 	return json.Unmarshal(e.Payload, v)
 }
