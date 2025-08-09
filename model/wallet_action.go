@@ -15,6 +15,10 @@ const (
 	// می‌تونی withdrawal, transfer و ... اضافه کنی
 )
 
+func (t WalletActionType) String() string {
+	return string(t)
+}
+
 type WalletAction struct {
 	// Unique event ID for traceability and idempotency (مهم برای تکراری نشدن عملیات و مانیتورینگ)
 	ActionID  uuid.UUID        `json:"action_id"`
