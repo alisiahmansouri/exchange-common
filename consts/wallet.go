@@ -1,6 +1,8 @@
 package consts
 
+// ──────────────────────────────
 // عملیات (برای لاگ و richerror)
+// ──────────────────────────────
 const (
 	OpWalletCreate        = "WalletHandler.CreateWallet"
 	OpWalletDeposit       = "WalletHandler.Deposit"
@@ -15,7 +17,9 @@ const (
 	OpWalletBulkOperation = "WalletHandler.BulkWalletOperation"
 )
 
+// ──────────────────────────────
 // پیام خطا (برای کاربر)
+// ──────────────────────────────
 const (
 	ErrWalletInvalidBody         = "بدنه درخواست کیف پول نامعتبر است"
 	ErrWalletAlreadyExists       = "کیف پول قبلاً وجود دارد"
@@ -27,6 +31,8 @@ const (
 	ErrWalletInvalidAmount       = "مبلغ باید بزرگتر از صفر باشد"
 	ErrWalletInvalidID           = "شناسه کیف پول نامعتبر است"
 	ErrWalletInvalidCurrencyID   = "شناسه ارز نامعتبر است"
+	ErrWalletInactive            = "کیف پول غیر فعال است"
+	ErrWalletInvalidStatus       = "وضعیت کیف پول نامعتبر است"
 	ErrWalletDepositFailed       = "خطا در انجام عملیات واریز به کیف پول"
 	ErrWalletWithdrawFailed      = "خطا در برداشت از کیف پول"
 	ErrWalletFreezeFailed        = "خطا در فریز کردن کیف پول"
@@ -41,11 +47,17 @@ const (
 	ErrWalletBulkOperationFailed = "خطا در انجام عملیات گروهی کیف پول"
 )
 
-// کد خطا (برای کلاینت/Front)
+// ──────────────────────────────
+// کد خطا (برای فرانت‌اند/کلاینت)
+// ──────────────────────────────
 const (
-	CodeInvalidWalletID   = "INVALID_WALLET_ID"
-	CodeInvalidCurrencyID = "INVALID_CURRENCY_ID"
-	CodeInvalidAmount     = "INVALID_AMOUNT"
+	CodeInvalidWalletID     = "INVALID_WALLET_ID"
+	CodeInvalidCurrencyID   = "INVALID_CURRENCY_ID"
+	CodeInvalidAmount       = "INVALID_AMOUNT"
+	CodeInvalidWalletStatus = "INVALID_WALLET_STATUS"
+
+	CodeWalletNotFound = "WALLET_NOT_FOUND"
+	CodeWalletInactive = "WALLET_INACTIVE"
 
 	CodeDepositError       = "DEPOSIT_ERROR"
 	CodeWithdrawError      = "WITHDRAW_ERROR"
@@ -60,7 +72,9 @@ const (
 	CodeBulkOperationError = "BULK_OPERATION_ERROR"
 )
 
+// ──────────────────────────────
 // پیام موفقیت
+// ──────────────────────────────
 const (
 	MsgWalletCreateSuccess  = "کیف پول با موفقیت ایجاد شد"
 	MsgDepositSuccess       = "واریز با موفقیت انجام شد"
@@ -71,16 +85,4 @@ const (
 	MsgTransferSuccess      = "انتقال داخلی با موفقیت انجام شد"
 	MsgChangeStatusSuccess  = "وضعیت کیف پول با موفقیت تغییر کرد"
 	MsgBulkOperationSuccess = "عملیات گروهی کیف پول با موفقیت انجام شد"
-)
-
-// پیام خطا
-const (
-	ErrWalletInactive      = "کیف پول غیر فعال است"
-	ErrWalletInvalidStatus = "وضعیت کیف پول نامعتبر است"
-)
-
-// کد خطا
-const (
-	CodeWalletInactive      = "WALLET_INACTIVE"
-	CodeInvalidWalletStatus = "INVALID_WALLET_STATUS"
 )
