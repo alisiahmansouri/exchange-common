@@ -22,6 +22,7 @@ const (
 	ErrOrderCreateFailed             = "خطا در ثبت سفارش"
 	ErrOrderNotFound                 = "سفارش یافت نشد"
 	ErrOrderUnauthorized             = "دسترسی به سفارش غیرمجاز است"
+	ErrOrderForbidden                = "دسترسی به این سفارش مجاز نیست"
 	ErrOrderInsufficientFunds        = "موجودی کافی برای ثبت سفارش وجود ندارد"
 	ErrOrderInvalidAmount            = "مقدار سفارش باید بزرگتر از صفر باشد"
 	ErrOrderInvalidID                = "شناسه سفارش نامعتبر است"
@@ -40,6 +41,8 @@ const (
 	ErrOrderPairIDInvalid            = "شناسه جفت ارز نامعتبر است"
 	ErrOrderInputInvalid             = "داده ورودی سفارش نامعتبر است"
 	ErrOrderInvalidType              = "نوع سفارش نامعتبر است"
+	ErrOrderInvalidStatusFilter      = "وضعیت فیلتر سفارش نامعتبر است"
+	ErrOrderInvalidPagination        = "مقادیر صفحه‌بندی نامعتبر است"
 	ErrInternal                      = "خطای داخلی سرور"
 )
 
@@ -49,6 +52,7 @@ const (
 	CodeOrderCreateError              = "ORDER_CREATE_ERROR"
 	CodeOrderNotFound                 = "ORDER_NOT_FOUND"
 	CodeOrderUnauthorized             = "ORDER_UNAUTHORIZED"
+	CodeOrderForbidden                = "ORDER_FORBIDDEN"
 	CodeOrderInsufficientFunds        = "ORDER_INSUFFICIENT_FUNDS"
 	CodeOrderInvalidAmount            = "ORDER_INVALID_AMOUNT"
 	CodeOrderInvalidID                = "ORDER_INVALID_ID"
@@ -67,5 +71,7 @@ const (
 	CodeOrderPairIDInvalid            = "ORDER_PAIR_ID_INVALID"
 	CodeOrderInputInvalid             = "ORDER_INPUT_INVALID"
 	CodeOrderInvalidType              = "ORDER_INVALID_TYPE"
+	CodeOrderInvalidStatusFilter      = "ORDER_INVALID_STATUS_FILTER"
+	CodeOrderInvalidPagination        = "ORDER_INVALID_PAGINATION"
 	CodeInternal                      = "INTERNAL_ERROR"
 )
