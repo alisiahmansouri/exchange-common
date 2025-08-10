@@ -1,6 +1,9 @@
 package model
 
-import "errors"
+import (
+	"errors"
+	"strings"
+)
 
 // --- خطای عمومی ---
 var (
@@ -103,3 +106,28 @@ var (
 	ErrOrderWalletFreezeFailed   = errors.New("فریز کردن مبلغ سفارش با خطا مواجه شد")
 	ErrOrderMaxOpenOrdersReached = errors.New("حداکثر تعداد سفارش باز مجاز برای کاربر پر شده است")
 )
+
+func IsUniqueViolation(err error) bool {
+	if err == nil {
+		return false
+	}
+
+	// unwrap chain
+	for e := err; e != nil; e = errors.Unwrap(e) {
+		s := strings.ToLower(e.Error())
+		// PostgreSQL
+		if strings.Contains(s, "duplicate key value violates unique constraint") || strings.Contains(s, "23505") {
+			return true
+		}
+		// MySQL
+		if strings.Contains(s, "duplicate entry") || strings.Contains(s, "error 1062") {
+			return true
+		}
+		// SQLite
+		if strings.Contains(s, "unique constraint failed") {
+			return true
+		}
+	}
+
+	return false
+}
