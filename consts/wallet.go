@@ -72,3 +72,15 @@ const (
 	MsgChangeStatusSuccess  = "وضعیت کیف پول با موفقیت تغییر کرد"
 	MsgBulkOperationSuccess = "عملیات گروهی کیف پول با موفقیت انجام شد"
 )
+
+// پیام خطا
+const (
+	ErrWalletInactive      = "کیف پول غیر فعال است"
+	ErrWalletInvalidStatus = "وضعیت کیف پول نامعتبر است"
+)
+
+// کد خطا
+const (
+	CodeWalletInactive      = "WALLET_INACTIVE"
+	CodeInvalidWalletStatus = "INVALID_WALLET_STATUS"
+)
