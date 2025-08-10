@@ -66,6 +66,11 @@ var (
 	ErrWalletAlreadyExists      = errors.New("این کیف پول قبلاً ایجاد شده است")
 	ErrBulkOpInvalidType        = errors.New("نوع عملیات گروهی نامعتبر است")
 	ErrWalletNotFoundOrInactive = errors.New("کیف پول یافت نشد یا فعال نیست")
+
+	// 👇 اضافه‌شده‌ها بر اساس یوزکیس‌های wallet:
+	ErrInvalidOperation    = errors.New("عملیات نامعتبر است")
+	ErrInvalidWalletStatus = errors.New("وضعیت کیف پول نامعتبر است")
+	ErrAmountOverflow      = errors.New("سرریز مقدار")
 )
 
 // --- خطاهای سفارش و جفت‌ارز ---
