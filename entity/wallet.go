@@ -13,6 +13,7 @@ const (
 	WalletStatusActive   WalletStatus = "active"
 	WalletStatusInactive WalletStatus = "inactive"
 	WalletStatusFrozen   WalletStatus = "frozen"
+	WalletStatusClosed   WalletStatus = "closed"
 	// برای future use: مثلاً suspended, locked, ...
 )
 
