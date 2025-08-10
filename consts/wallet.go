@@ -98,3 +98,6 @@ const (
 	MsgBulkOperationSuccess = "عملیات گروهی کیف پول با موفقیت انجام شد"
 	MsgWalletFetchSuccess   = "اطلاعات کیف پول با موفقیت دریافت شد" // ✅ اضافه شد
 )
+const (
+	OpWalletList = "WalletHandler.ListWallets"
+)
