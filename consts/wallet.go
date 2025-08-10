@@ -1,5 +1,13 @@
 package consts
 
+const (
+	CodeUnauthorized   = "UNAUTHORIZED"
+	CodeForbidden      = "FORBIDDEN"
+	CodeNotFound       = "NOT_FOUND"
+	CodeInvalidRequest = "INVALID_REQUEST"
+	CodeInternalError  = "INTERNAL_ERROR"
+)
+
 // ──────────────────────────────
 // عملیات (برای لاگ و richerror)
 // ──────────────────────────────
