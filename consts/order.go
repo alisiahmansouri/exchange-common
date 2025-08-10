@@ -36,8 +36,10 @@ const (
 	ErrOrderInvalidSide              = "جهت سفارش (خرید/فروش) نامعتبر است"
 	ErrOrderClientOrderIDTooLong     = "clientOrderID بیش از حد طولانی است"
 	ErrOrderInvalidLimitPrice        = "قیمت سفارش limit نامعتبر است"
+	ErrOrderPriceNotAllowedForMarket = "ارسال قیمت برای سفارش market مجاز نیست"
 	ErrOrderPairIDInvalid            = "شناسه جفت ارز نامعتبر است"
 	ErrOrderInputInvalid             = "داده ورودی سفارش نامعتبر است"
+	ErrOrderInvalidType              = "نوع سفارش نامعتبر است"
 	ErrInternal                      = "خطای داخلی سرور"
 )
 
@@ -61,7 +63,9 @@ const (
 	CodeOrderInvalidSide              = "ORDER_INVALID_SIDE"
 	CodeOrderClientOrderIDTooLong     = "ORDER_CLIENT_ORDER_ID_TOO_LONG"
 	CodeOrderInvalidLimitPrice        = "ORDER_INVALID_LIMIT_PRICE"
+	CodeOrderPriceNotAllowedForMarket = "ORDER_PRICE_NOT_ALLOWED_FOR_MARKET"
 	CodeOrderPairIDInvalid            = "ORDER_PAIR_ID_INVALID"
 	CodeOrderInputInvalid             = "ORDER_INPUT_INVALID"
+	CodeOrderInvalidType              = "ORDER_INVALID_TYPE"
 	CodeInternal                      = "INTERNAL_ERROR"
 )
