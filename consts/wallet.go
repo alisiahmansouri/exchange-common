@@ -23,6 +23,7 @@ const (
 	OpWalletSummary       = "WalletHandler.GetWalletsSummary"
 	OpWalletHistory       = "WalletHandler.GetWalletHistory"
 	OpWalletBulkOperation = "WalletHandler.BulkWalletOperation"
+	OpWalletGetByID       = "WalletHandler.GetWalletByID" // ✅ اضافه شد
 )
 
 // ──────────────────────────────
@@ -53,6 +54,7 @@ const (
 	ErrWalletSummaryFailed       = "خطا در دریافت خلاصه موجودی‌ها"
 	ErrWalletHistoryFailed       = "خطا در دریافت تاریخچه کیف پول"
 	ErrWalletBulkOperationFailed = "خطا در انجام عملیات گروهی کیف پول"
+	ErrWalletFetchFailed         = "خطا در دریافت اطلاعات کیف پول" // ✅ اضافه شد
 )
 
 // ──────────────────────────────
@@ -78,6 +80,7 @@ const (
 	CodeWalletSummaryError = "WALLET_SUMMARY_ERROR"
 	CodeWalletHistoryError = "WALLET_HISTORY_ERROR"
 	CodeBulkOperationError = "BULK_OPERATION_ERROR"
+	CodeFetchError         = "FETCH_ERROR" // ✅ اضافه شد
 )
 
 // ──────────────────────────────
@@ -93,4 +96,5 @@ const (
 	MsgTransferSuccess      = "انتقال داخلی با موفقیت انجام شد"
 	MsgChangeStatusSuccess  = "وضعیت کیف پول با موفقیت تغییر کرد"
 	MsgBulkOperationSuccess = "عملیات گروهی کیف پول با موفقیت انجام شد"
+	MsgWalletFetchSuccess   = "اطلاعات کیف پول با موفقیت دریافت شد" // ✅ اضافه شد
 )
